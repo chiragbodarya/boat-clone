@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/cart.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #header {
+      display: flex;
+      justify-content: space-around;
+      margin: auto;
+      padding: 20px 0px;
+      position: fixed;
+      top: 0;
+      right: 0px;
+      left: 0px;
+      z-index: 9999;
+      width: 100%;
+      height: 45px;
+      background-color: white;
+
+      box-shadow: rgba(40, 40, 40, 0.1) 0px 20px 20px -10px;
+    }
+
+    * {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    p {
+      font-size: 15px;
+    }
+
+    .mouse {
+      cursor: pointer;
+      border: none;
+      background-color: white;
+      font-size: 16px;
+    }
+
+    .curser {
+      width: 90%;
+      padding: 40px;
+      margin: auto;
+      display: grid;
+      display: none;
+      cursor: pointer;
+      grid-template-columns: repeat(4, 1fr);
+      justify-content: space-around;
+      position: absolute;
+      position: fixed;
+      background-color: #fff;
+      margin-top: 50px;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+        rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    }
+
+    .curser>div {
+      margin: auto;
+      text-align: center;
+    }
+
+    .search>input {
+      border-radius: 23px;
+      padding: 0 30px;
+      border: none;
+      background-color: #f7f4f4;
+    }
+
+    .category {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .search {
+      display: flex;
+
+      gap: 30px;
+    }
+
+    .container {
+      width: 100%;
+    }
+
+    .wrapper {
+      width: 100%;
+      height: 100%;
+      padding: 50px;
+      display: grid;
+      grid-template-columns: 3fr 4fr;
+    }
+
+    .text {
+      flex-basis: 45%;
+    }
+
+    .product-box {
+      display: grid;
+      grid-template-columns: fit-content(50px) 1fr;
+      gap: 50px;
+    }
+
+    .small-images {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .small-images img {
+      width: 100%;
+      height: 50px;
+      object-fit: contain;
+      border-radius: 5px;
+      cursor: pointer;
+      border: 1px solid #dadada;
+      padding: 2px;
+    }
+
+    .small-images img:hover {
+      opacity: 1;
+    }
+
+    .main-images {
+      position: relative;
+    }
+
+    .main-images img {
+      position: absolute;
+      background-color: #555;
+      height: auto;
+      width: 85%;
+      object-fit: cover;
+    }
+
+    .brand {
+      background-color: #008000;
+      width: fit-content;
+      color: #fff;
+      font-size: 12px;
+      padding: 2px 5px;
+    }
+
+    h2 {
+      font-size: 16px;
+      color: #555;
+      margin: 14px 0px;
+    }
+
+    .review {
+      background-color: green;
+      display: inline-block;
+      color: #fff;
+      padding: 4px;
+      border-radius: 5px;
+    }
+
+    .review .fa {
+      color: #fff;
+    }
+
+    .price {
+      color: red;
+      font-size: 28px;
+      font-weight: bold;
+      padding-top: 10px;
+      padding-right: 10px;
+    }
+
+    .price-box {
+      display: flex;
+      align-items: center;
+    }
+
+    .text button {
+      width: 140px;
+      color: #fff;
+      font-size: 15px;
+      outline: none;
+      border: 0;
+      border-radius: 5px;
+      background-color: #fe980f;
+      padding: 10px 15px;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+
+    .text>button .fa {
+      margin-right: 10px;
+    }
+
+    .buy {
+      background-color: rgb(201, 97, 57);
+    }
+
+    .main {
+      background-color: #e8edf0;
+      color: black;
+      /* height: 100%; */
+      width: 100%;
+      gap: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      /* position: fixed; */
+    }
+
+    .main-container {
+      display: block;
+    }
+
+    .sbmain {
+      display: flex;
+      align-items: center;
+    }
+
+    .sbmain img {
+      height: 25%;
+      width: 25%;
+      object-fit: cover;
+    }
+
+    .main2 {
+      background-color: #000000;
+      color: #b2b2b2;
+      height: 70px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: max-content;
+      gap: 10%;
+    }
+
+    .sbmain1 p {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .main2 .sbmain1:nth-child(1) {
+      color: red;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .sbmain2 img {
+      width: 100%;
+    }
+
+    .main4 h1 {
+      text-align: center;
+      font-size: 50px;
+      margin-top: 20px;
+    }
+
+    .main4 p {
+      padding: 8px;
+      text-align: center;
+      font-family: monospace;
+      font-size: 15px;
+    }
+
+    #footer1 {
+      display: flex;
+      gap: 60px;
+      margin-top: 40px;
+      width: 96%;
+      margin: auto;
+      margin-top: 30px;
+    }
+
+    #footer1 p {
+      font-size: 13px;
+      color: rgb(158, 157, 157);
+    }
+
+    .f1 {
+      width: 10%;
+    }
+
+    .vLine {
+      border: 1px solid rgb(230, 230, 230);
+      width: 0px;
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+
+    .oddL {
+      margin-top: 50px;
+      margin-bottom: 120px;
+      margin-right: -40px;
+    }
+
+    .oddL2 {
+      margin-top: 50px;
+      margin-bottom: 180px;
+      margin-right: -40px;
+    }
+
+    .socialMedia {
+      display: flex;
+      gap: 30px;
+      font-size: 25px;
+      width: 96%;
+      margin: auto;
+    }
+
+    .playStore {
+      display: flex;
+    }
+
+    .extra {
+      display: flex;
+      gap: 600px;
+      width: 96%;
+      margin: auto;
+    }
+
+    .emailSubmit {
+      border: 1px solid red;
+      padding: 6px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .emailSubmit>button {
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 17px;
+      padding: 10px 25px;
+      background-color: rgb(220, 24, 37);
+    }
+
+    .emailSubmit>input {
+      border: none;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    hr {
+      width: 100%;
+      margin: auto;
+      color: #dadada;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .content p {
+      margin: 10px 0px;
+    }
+
+    .label {
+      background: linear-gradient(270deg,
+          #fbc50a 23.86%,
+          #dfb108 47.06%,
+          #fbc50a 66.05%);
+      color: black;
+      width: 280px;
+      font-size: 16px;
+      padding: 10px;
+      gap: 8%;
+      display: flex;
+      align-items: center;
+      /* justify-content: ; */
+      border-radius: 5px;
+      animation: 5s linear 0s infinite normal none running bgstrip;
+      position: relative;
+    }
+
+    .label p {
+      background-color: white;
+      color: black;
+      position: absolute;
+      top: 5;
+      padding: 0px 5px;
+      right: 0;
+    }
+
+    .text_container {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+    }
+
+    .color {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .section_color {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .payments {
+      display: flex;
+      flex-direction: column;
+      padding: 13px;
+      margin-top: 15px;
+      line-height: 30px;
+      border: 1px solid #dadada;
+      border-radius: 10px;
+    }
+
+    .payments p:nth-child(2) {
+      color: grey;
+      font-size: 15px;
+    }
+
+    .payments p:nth-child(3) {
+      font-size: 15px;
+    }
+
+    .payments p {
+      font-size: 20px;
+    }
+
+    .payments button {
+      background-color: #ff0000;
+      width: 100%;
+    }
+
+    .counter {
+      display: flex;
+      align-items: center;
+    }
+
+    .border {
+      display: flex;
+      align-items: center;
+      border: 1px solid #dadada;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .counter input {
+      width: 20px;
+      border: none;
+      line-height: 30px;
+      font-size: 20px;
+      text-align: center;
+      color: red;
+      appearance: none;
+    }
+
+    .counter span {
+      display: block;
+      font-size: 25px;
+      padding: 0 10px;
+      cursor: pointer;
+      color: black;
+      border: none;
+      user-select: none;
+    }
+
+    .icon-center {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 1250px) {
+      .wrapper {
+        grid-template-columns: 6fr 8fr;
+      }
+
+      .product-box {
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .wrapper {
+        grid-template-columns: 1fr;
+        padding: 10px;
+      }
+
+      .main-images img {
+        height: 100%;
+        width: auto;
+      }
+
+      .main-images {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .product-box {
+        grid-template-columns: 1fr 5fr;
+        order: 1;
+      }
+
+      .label {
+        display: none;
+      }
+
+      .small-images img {
+        width: fit-content;
+      }
+
+      .small-images {
+        align-items: end;
+      }
+
+      .sbmain1 p {
+        font-size: 14px;
+      }
+
+      .main4 h1 {
+        font-size: 35px;
+      }
+
+      .product-box {
+        margin-top: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .text_container {
+        grid-template-columns: 1fr;
+      }
+
+      .section_payment {
+        width: 100%;
+      }
+
+      p {
+        font-size: 12px;
+      }
+
+      .sbmain {
+        flex-direction: column;
+      }
+
+      .main4 p {
+        font-size: 12px;
+      }
+
+      .product-box {
+        margin-top: 30px;
+      }
+
+      .main {
+        padding: 5px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .sbmain p {
+        font-size: 9px;
+      }
+
+      .main {
+        flex-wrap: wrap;
+      }
+
+      .sbmain1 p {
+        font-size: 12px;
+      }
+
+      .small-images {
+        display: none;
+      }
+
+      .product-box {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .main-images img {
+        position: relative;
+        height: auto;
+        width: 80%;
+      }
+
+      .wrapper {
+        margin-bottom: 30px;
+      }
+
+      .main {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="fas fa-bars hidden" id="menu-btn"></div>
+      <!-- Menu Icon -->
+      <div class="logo" style="cursor: pointer; position: relative; left: 75px" id="logoTop">
+        <a href="index.html"><img src="./images/mainlogo.avif" alt="Boat" height="35px" width="90px" /></a>
+      </div>
+      <ul>
+        <li>
+          <a href="./index.html" id="categories">CATEGORIES<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+        </li>
+        <li><a href="./option.html"> ROCK IN INDIA</a></li>
+        <li><a href="./option.html">GIFT WITH BOAT</a></li>
+        <li>
+          <a href="#" id="more">MORE<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+        </li>
+      </ul>
+      <div class="search">
+        <input type="text" id="input" placeholder="Search Earphones" />
+        <div class="navicon">
+          <img src="./images/c-icon.webp" alt="Contact" class="naveicons" />
+          <img src="./images/cart-icon.avif" class="naveicons" alt="Cart" />
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- scroll lists Categories -->
+  <div class="scroll-list-categorie">
+    <div class="c-items">
+      <img src="./images/sec2.avif" alt="" />
+      <img src="./images/sec5.avif" alt="" />
+      <img src="./images/sec6.webp" alt="" />
+      <img src="./images/sec7.png" alt="" />
+      <img src="./images/sec8.webp" alt="" />
+      <img src="./images/catch3.avif" alt="" />
+      <img src="./images/catch4.avif" alt="" />
+      <img src="./images/catch5.avif" alt="" />
+    </div>
+  </div>
+
+  <!-- scroll lists More -->
+
+  <div class="scroll-list-more">
+    <ul>
+      <li>Gifting</li>
+      <li>Do What Floats Your BoAt</li>
+      <li>Blogs</li>
+      <li>Corporate Orders</li>
+      <li>Earn $100</li>
+      <li>Careers</li>
+      <li>Social Responsibility</li>
+      <li>Meet the Boatheads</li>
+    </ul>
+  </div>
+  <div class="container">
+    <div class="wrapper">
+      <div class="product-box">
+        <div class="small-images">
+          <img src="./img/32011675-2ad8-4b99-9787-895caf201d28_600x.webp" onmouseover="clickimg(this)" />
+          <img src="./img/2.webp" onmouseover="clickimg(this)" />
+          <img src="./img/3.webp" onmouseover="clickimg(this)" />
+          <img src="./img/4.webp" onmouseover="clickimg(this)" />
+          <img src="./img/5.webp" onmouseover="clickimg(this)" />
+        </div>
+        <div class="main-images">
+          <img src="./img/32011675-2ad8-4b99-9787-895caf201d28_600x.webp" id="imagebox" />
+        </div>
+      </div>
+      <div class="text">
+        <div class="label">
+          <i class="fa-solid fa-bolt"></i>
+          <label for="offer">Ending In : 2h 44m 10s</label>
+          <p>2</p>
+        </div>
+        <br /><br />
+        <div class="content">
+          <h2>WIRELESS EARBUDS</h2>
+          <p>
+            boAt Airdopes 131 | Wireless Earbuds with upto 60 Hours Playback,
+            13mm Drivers and IWP Technology, 650mah C type Charging Case
+          </p>
+          <p class="icon-center">
+            <span><i class="fa fa-star" aria-hidden="true"
+                style="color: green; margin-right: 5px; font-size: 10px"></i>4.8</span>
+            599 reviews
+            <i class="fa-solid fa-circle-check" style="color: #58c65f"></i>
+          </p>
+        </div>
+        <br /><br />
+        <hr style="color: #dadada" />
+
+        <div class="text_container">
+          <div class="color">
+            <div class="section_color">
+              <p>Color:</p>
+              <i class="fa-solid fa-circle" style="color: #000000"></i>
+              <i class="fa-solid fa-circle" style="color: #d2df96"></i>
+              <i class="fa-solid fa-circle" style="color: #d57b9b"></i>
+              <i class="fa-solid fa-circle" style="color: #4874db"></i>
+            </div>
+            <div class="section_payment">
+              <p>₹ 15 Extra Discount on UPI</p>
+              <img src="./img/Group_1_1.avif" alt="" />
+            </div>
+          </div>
+          <div class="payments">
+            <p>
+              <b style="margin: 0 10px 0 0">₹ 999</b>
+              <span style="color: #00c68c; margin: 0 10px 0 0; border: none">67% off</span>
+              <strike> ₹ 4,490</strike>
+            </p>
+            <p>Inclusive of all taxes</p>
+            <div class="counter">
+              <div class="border">
+                <span class="down" onClick="decreaseCount(event, this)">-</span>
+                <input type="text" value="1" />
+                <span class="up" onClick="increaseCount(event, this)">+</span>
+              </div>
+              <p>Quantity</p>
+            </div>
+            <button class="addcart" onclick="openNav()">ADD TO CART</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-container">
+    <div class="main">
+      <div class="sbmain">
+        <img src="./img/icon-1.webp" />
+        <p>1 Year Warranty</p>
+      </div>
+      <div class="sbmain">
+        <img src="./img/icon-2.webp" />
+        <p>7 Days Replacement</p>
+      </div>
+      <div class="sbmain">
+        <img src="./img/icon-3.webp" />
+        <p>Free Shipping</p>
+      </div>
+      <div class="sbmain">
+        <img src="./img/icon-4.webp" />
+        <p>Secure Checkout</p>
+      </div>
+      <div class="sbmain">
+        <img src="./img/icon-5.webp" />
+        <p>GST Billing</p>
+      </div>
+    </div>
+  </div>
+  <!-- main heading2 -->
+  <div class="main2">
+    <div class="sbmain1">
+      <p>DESCRIPTION</p>
+    </div>
+    <div class="sbmain1">
+      <p>SPECIFICATIONS</p>
+    </div>
+    <div class="sbmain1">
+      <p>REVIEWS (1185)</p>
+    </div>
+  </div>
+  <!-- main heading3-->
+  <div class="main3">
+    <div class="sbmain2">
+      <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/AD131_W.png?v=1615029254" />
+    </div>
+  </div>
+  <!-- boAt Airdopes 131 - Wireless Earbuds -->
+  <div class="main4">
+    <h1>boAt Airdopes 131 - Wireless Earbuds</h1>
+    <p style="text-align: center">
+      Sleek. Comfortable. Stylish. And a Splash of Incredible Colours. Bring
+      alive your favourite sounds with these true wireless earbuds Equipped
+      with 13mm drivers for the magical boAt signature sound. Designed for
+      supreme ease with Insta Wake N’ Pair technology that auto connects the
+      moment it’s out of the case and Type C Charging. Tws earbuds to drown
+      all the sounds you don’t need and live every moment. With a battery
+      capacity of 40mAh for each earbud, indulge in a blissful audio
+      experience for up to 3 hours in a go. Tap into instant wireless
+      functionality with optimum Bluetooth V5.0
+    </p>
+  </div>
+  <footer>
+    <div class="footer">
+      India's fastest growing audio & wearables brand. The most incredible
+      range of wireless earphones, earbuds, headphones, smart watches, and
+      home audio. From workouts to adventures, boAt will get you sailing!
+    </div>
+    <div>
+      <div class="list">
+        <div class="about">
+          <div class="subcribe">
+            <div class="logo" style="cursor: pointer">
+              <a href="https://www.boat-lifestyle.com/" target="_blank"><img src="./images/mainlogo.avif" alt="Boat"
+                  height="35px" width="90px" /></a>
+            </div>
+            <p>
+              Subscribe to email alerts. We promise not to spam your inbox.
+            </p>
+            <span class="email_box">
+              <input type="text" id="email_input" placeholder="Email Address*" />
+              <button type="button" id="subcribe-btn">SUBCRIBE</button>
+            </span>
+          </div>
+          <div class="footer_links">
+            <div class="shop_main">
+              <p class="footer_manu">
+                <a href="# ">SHOP <span>+</span></a>
+              </p>
+              <div class="shop">
+                <ul class="shop_ul_1">
+                  <li><a href="#">True Wireless Earbuds</a></li>
+                  <li><a href="#">Wired Headphones</a></li>
+                  <li><a href="#">Home Audio</a></li>
+                  <li><a href="#">Smart Watches</a></li>
+                  <li><a href="#">Misfit</a></li>
+                  <li><a href="#">Rock In India</a></li>
+                </ul>
+                <ul class="shop_ul_2">
+                  <li><a href="#">Wireless Headphones</a></li>
+                  <li><a href="#">Wireless Speakers</a></li>
+                  <li><a href="#">Mobile Accessories</a></li>
+                  <li><a href="#">TRebel</a></li>
+                  <li><a href="#">Gift Card</a></li>
+                  <li><a href="#">Earn ₹100</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="help_main">
+              <p class="footer_manu">
+                <a href="# ">HELP <span>+</span></a>
+              </p>
+              <div class="help">
+                <ul class="help_ul_1">
+                  <li><a href="#">Track Your Order</a></li>
+                  <li><a href="#">Return Policy</a></li>
+                  <li><a href="#">Bulk Orders</a></li>
+                  <li><a href="#">Why Buy Direct</a></li>
+                </ul>
+                <ul class="help_ul_2">
+                  <li><a href="#">Warranty & Support</a></li>
+                  <li><a href="#">Service Centers</a></li>
+                  <li><a href="#">FAQs</a></li>
+                  <li>
+                    <a href="#"></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <div class="company">
+                <p class="footer_manu">
+                  <a href="# ">COMPANY <span>+</span></a>
+                </p>
+                <ul>
+                  <li><a href="#">About boAt</a></li>
+                  <li><a href="#">News</a></li>
+                  <li><a href="#">Read Our Blog</a></li>
+                  <li><a href="#">Careers</a></li>
+                  <li><a href="#">Security</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Investor</a></li>
+                  <li><a href="#">Responsibility</a></li>
+                  <li><a href="#">Warranty</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- mobail view -->
+          <div class="mobile_footer">
+            <div class="m_footer">
+              <button class="tablinks" onclick="openCity(event, 'shop1')" id="defaultOpen">
+                <span>SHOP</span>
+              </button>
+              <button class="tablinks" onclick="openCity(event, 'help1')">
+                <span>HELP</span>
+              </button>
+              <button class="tablinks" onclick="openCity(event, 'company_1')">
+                <span>COMPANY</span>
+              </button>
+            </div>
+            <div class="tab_contant">
+              <div id="shop1" class="tabcontent">
+                <ul class="liti">
+                  <li><a href="#">True Wireless Earbuds</a></li>
+                  <li><a href="#">Wired Headphones</a></li>
+                  <li><a href="#">Home Audio</a></li>
+                  <li><a href="#">Smart Watches</a></li>
+                  <li><a href="#">Misfit</a></li>
+                  <li><a href="#">Rock In India</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">Wireless Headphones</a></li>
+                  <li><a href="#">Wireless Speakers</a></li>
+                  <li><a href="#">Mobile Accessories</a></li>
+                  <li><a href="#">TRebel</a></li>
+                  <li><a href="#">Gift Card</a></li>
+                  <li><a href="#">Earn ₹100</a></li>
+                </ul>
+              </div>
+              <div id="help1" class="tabcontent">
+                <ul class="liti">
+                  <li><a href="#">Track Your Order</a></li>
+                  <li><a href="#">Return Policy</a></li>
+                  <li><a href="#">Bulk Orders</a></li>
+                  <li><a href="#">Why Buy Direct</a></li>
+                </ul>
+
+                <ul>
+                  <li><a href="#">Warranty & Support</a></li>
+                  <li><a href="#">Service Centers</a></li>
+                  <li><a href="#">FAQs</a></li>
+                </ul>
+              </div>
+              <div id="company_1" class="tabcontent">
+                <ul class="liti">
+                  <li><a href="#">About boAt</a></li>
+                  <li><a href="#">News</a></li>
+                  <li><a href="#">Read Our Blog</a></li>
+                  <li><a href="#">Careers</a></li>
+                  <li><a href="#">Security</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Investor</a></li>
+                  <li><a href="#">Responsibility</a></li>
+                  <li><a href="#">Warranty</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="social-links">
+        <ul>
+          <li class="facebook">
+            <button class="btn btn-1">
+              <a href="https://www.linkedin.com/login">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+            </button>
+          </li>
+          <li class="twitter">
+            <button class="btn btn-4">
+              <a
+                href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiZW4ifQ%3D%3D%22%7D">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+            </button>
+          </li>
+          <li class="instagram">
+            <button class="btn btn-2">
+              <a href="https://www.instagram.com/accounts/login/">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+            </button>
+          </li>
+          <li class="youtube">
+            <button class="btn btn-5">
+              <a href="https://www.youtube.com/">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+            </button>
+          </li>
+          <li class="linkedin">
+            <button class="btn btn-3">
+              <a href="https://www.linkedin.com/login">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+            </button>
+          </li>
+        </ul>
+      </div>
+      <!-- App download -->
+      <div class="links-and-payments">
+        <div class="app-download-links">
+          <p>Download the App</p>
+          <div>
+            <a href=""><img src="./images/playstore.avif" alt="Goto Playstore" /></a>
+            <a href=""><img src="./images/appstore.avif" alt="Goto Appstore" /></a>
+          </div>
+        </div>
+
+        <!-- Payment method -->
+        <div class="payment">
+          <p>We Accept</p>
+          <a href=""><img src="./images/payments.png" alt="" /></a>
+        </div>
+      </div>
+
+      <!-- Copyrights -->
+      <div class="copyright">
+        <p class="copyrights_1">
+          © 2023 Imagine Marketing Limited. All Rights Reserved.
+        </p>
+        <p class="copyrights_2">
+          <b>For queries contact us:</b> Manager, Imagine Marketing Limited
+          Unit no. 204 & 205, 2nd floor, D-wing & E-wing, Corporate Avenue,
+          Andheri Ghatkopar Link Road, Mumbai, Maharashtra-400093, India
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- <div style="background-color: rgba(0, 0, 0, 0.7);"> -->
+  <div id="mySidenav" class="sidenav">
+    <div class="cart_sidebar-header">
+      <p>Choose options</p>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    </div>
+    <div class="cart_sidebar-container">
+      <div class="cart_sidebar-details">
+        <img src="./img/32011675-2ad8-4b99-9787-895caf201d28_600x.webp" alt="" />
+        <div class="cart_sidebar-content">
+          <h3>Airdopes 131</h3>
+          <p>
+            <b style="margin: 0 8px 0 0; color: rgb(220, 24, 37)">₹ 999.00</b>
+            <span style="color: #00c68c; margin: 0 6px 0 0; border: none">67% off</span>
+            <strike> ₹ 4,490</strike>
+          </p>
+          <ul>
+            <li>650mAh Battery</li>
+            <li>Bluetooth V5.0</li>
+            <li>Nonstop Music for 12 hours</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cart_sidebar-product">
+        <p>Color: Black</p>
+        <div class="cart_sidebar-products">
+          <img src="./img/32011675-2ad8-4b99-9787-895caf201d28_600x.webp" alt="" />
+          <img src="./img/2.webp" alt="" />
+          <img src="./img/3.webp" alt="" />
+          <img src="./img/4.webp" alt="" />
+          <img src="./img/5.webp" alt="" />
+        </div>
+      </div>
+
+      <div class="cart_sidebar-btn">
+        <button class="addcart-demo" id="address_popup" onclick=" closeNav()">ADD TO CART</button>
+        <a href="">View Details</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- </div> -->
+  <!-- address popup start -->
+  <div id="main">
+    <div id="main_popup">
+      <div id="main1">
+        <div id="image">
+          <img src="https://cdn.gokwik.co/merchant/155/logo1632914610996.jpeg" alt="boat" />
+        </div>
+
+        <div id="address">
+          <div>
+            <p id="addnew">Add New Address</p>
+          </div>
+          <div>
+            <p id="fields">* Mandatory Fields</p>
+          </div>
+        </div>
+
+        <hr id="hr" />
+
+        <div id="information">
+          <div id="fill">
+            <p>Please fill the form :-</p>
+          </div>
+
+          <div id="first">
+            <label id="mobile" for="">Mobile no*.</label><br />
+            <input id="nuber" type="number" /><br />
+            <label id="fullname" for="">Full Name *</label><br />
+            <input id="name" type="text" required /><br />
+            <label id="city" for="">City*</label><br />
+            <input id="cityinput" type="text" required /><br />
+          </div>
+          <div id="first">
+            <label id="email" for="">Pincode*</label><br />
+            <input id="mail" type="text" /><br />
+            <label id="pincode" for="">E-mail*</label><br />
+            <input id="pin" type="email" /><br />
+            <label id="state" for="">State*</label><br />
+            <input id="stateinput" type="text" required /><br />
+          </div>
+
+          <div id="fulladdress">
+            <label id="fulladdr" for="">Full Address*</label><br />
+            <input id="alladdress" type="text" />
+          </div>
+        </div>
+
+        <div id="button">
+          <!-- <a href="payment.html"><button id="continue">Continue</button></a> -->
+          <button id="continue" onclick="closeNav()">Continue</button>
+        </div>
+        <p id="condition">T&C | Privacy | 991899db</p>
+      </div>
+      <div id="main2">
+        <div>
+          <div id="product">
+            <div id="productdetails">
+              <div id="ordersummary">
+                <p>
+                  <i id="carticon" class="fa fa-shopping-cart"></i> Order
+                  Summary
+                </p>
+              </div>
+
+              <div id="order">
+                <img
+                  src="https://dukandwar.com/wp-content/uploads/2020/06/Boat-Rockerz-400-On-Ear-Wireless-Bluetooth-Headphones-GreyGreen_2.jpg"
+                  alt="product" />
+              </div>
+              <div id="ordredetails1">
+                <div id="text">
+                  <p>Subtotal</p>
+                  <p>Coupon Discount</p>
+                  <p>Shipping</p>
+                </div>
+
+                <div id="textdetailes">
+                  <p class="totalPrice">0</p>
+                  <p class="cd">0</p>
+                  <p>Free</p>
+                </div>
+              </div>
+              <hr id="hr" />
+              <div id="ordredetails2">
+                <h4 id="text">Total Amount</h4>
+                <h4 id="textdetaile"></h4>
+              </div>
+            </div>
+          </div>
+
+          <div id="discount">
+            <img src="https://pdp.gokwik.co/assets/icons/coupon-discount.svg" alt="" />
+            <input id="code" type="text" placeholder="Discount code" />
+          </div>
+
+          <div>
+            <button id="apply">Apply</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- address popup end -->
+  <script src="https://kit.fontawesome.com/0ed43cb816.js" crossorigin="anonymous"></script>
+
+  <script src="./js/script.js"></script>
+  <script>
+    function displayData() {
+      var keep = document.querySelector(".curser");
+      keep.style.display = "grid";
+      keep.style.background = "white";
+      document
+        .querySelector(".mouse")
+        .addEventListener("mouseleave", removeData);
+    }
+    document
+      .querySelector(".mouse")
+      .addEventListener("mouseover", displayData);
+
+    function removeData() {
+      var keep = document.querySelector(".curser");
+      keep.style.display = "none";
+    }
+    document
+      .querySelector(".mouse")
+      .addEventListener("mouseleave", removeData);
+
+    function clickimg(smallImg) {
+      var fullImg = document.getElementById("imagebox");
+      fullImg.src = smallImg.src;
+    }
+
+    function displayData() {
+      var keep = document.querySelector(".curser");
+      keep.style.display = "grid";
+      keep.style.background = "white";
+      document
+        .querySelector("body")
+        .addEventListener("mouseleave", removeData);
+    }
+    document
+      .querySelector(".mouse")
+      .addEventListener("mouseover", displayData);
+
+    function removeData() {
+      var keep = document.querySelector(".curser");
+      keep.style.display = "none";
+    }
+    document.querySelector("body").addEventListener("mouseleave", removeData);
+
+    function increaseCount(a, b) {
+      var input = b.previousElementSibling;
+      var value = parseInt(input.value, 10);
+      value = isNaN(value) ? 0 : value;
+      value++;
+      input.value = value;
+    }
+
+    function decreaseCount(a, b) {
+      var input = b.nextElementSibling;
+      var value = parseInt(input.value, 10);
+      if (value > 1) {
+        value = isNaN(value) ? 0 : value;
+        value--;
+        input.value = value;
+      }
+    }
+
+
+
+
+  </script>
+  <script>
+    
+    const clickBtn = document.getElementById("address_popup");
+    const popup = document.getElementById("main");
+
+    clickBtn.addEventListener("click", () => {
+      popup.style.display = "flex";
+    });
+
+    popup.addEventListener("click", () => {
+      popup.style.display = "none";
+    });
+  </script>
+
+</body>
+
+</html>
